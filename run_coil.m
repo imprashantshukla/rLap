@@ -1,8 +1,7 @@
-
- [etS,euS,et_coil,eu_coil] = experiment_coil('laprlsc',0.005,0.5);
- [etSp,euSp,et_coilp,eu_coilp] = experiment_coilp('laprlsc',0.005,0.5);
- [etSm,euSm,et_coilm,eu_coilm] = experiment_coilm('laprlsc',0.005,0.5);
- [etSr,euSr,et_coilr,eu_coilr] = experiment_coil('r_laprlsc',0.0005,0.05);
+[et_coil,eu_coil] = experiment_coil('laprlsc',0.005,0.5,6); 
+[et_coilp,eu_coilp] = experiment_coil('plaprlsc',0.005,0.5,6);
+[et_coilm,eu_coilm] = experiment_coil('mlaprlsc',0.005,0.5,6);
+[et_coilr,eu_coilr] = experiment_coil('r_laprlsc',0.005,0.5,6);
 
 %% et rlsc
 x = 1:length(et_coil);
@@ -13,17 +12,10 @@ xlabel('10 Binary Classification');
 ylabel('Root Mean Squared Error %');
 legend('Lap','Lap2','pLap','rLap');
 %% eu rlsc
-x = 1:length(eu_coilm);
+x = 1:length(eu_coil);
 figure;
 plot(x, eu_coil,'r--o' ,x,eu_coilm,'g-+',x,eu_coilp,'k-.p',x, eu_coilr,'b- .');
 title('coil EU RLSC Set');
 xlabel('10 Binary Classification');
 ylabel('Root Mean Squared Error %');
 legend('Lap','Lap2','pLap','rLap');
-
-
-
-
-
-
-
